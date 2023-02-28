@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Fish</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./css/style.css">
+
+<!-- Chelsea Market and Asap fontes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Chelsea+Market&display=swap" rel="stylesheet">
+
+<!-- End fonts -->
+
+<script src="./js/index.js"></script>
+
+</head>
+<body>
+
+  <div id="loading" role="alert">
+    <img src="./img/loading.gif" alt="Loading" />
+  </div>
+  <div onclick="hiddenList()" id="mask"></div>
+
+  <main id="wrapper">
+    <div>
+      <button id="list-button" onclick="toggleList()" aria-label="open fish list">
+        <svg fill="#ffffff" id="list-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+      </button>
+    </div>
+    
+    <div id="list" class="list-hidden" aria-hidden="true">
+      <div id="container-close-button">
+        <button tabindex="-1" onclick="hiddenList()" id="close-list-button" aria-label="close fish list">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg>
+        </button>
+      </div>
+      <div id="search-container">
+        <form id="search-form">
+          <input tabindex="-1" name="search-fish" id="search-fish" type="search" maxlength="100" placeholder="Search" />
+        </form>
+      </div>
+      <div id="fish-list-container"></div>
+    </div>
+
+    <div id="illustration-wrapper">
+      <div id="orange-effect"></div>
+      <div id="black-effect"></div>
+
+      <div id="illustration" class="container">
+        <div id="fish-illustration">
+          <img id="species-illutration-photo" src="" alt="">
+          <h1 id="species-name"></h1>
+          <h2 id="scientific-name"></h2>
+          <h3 id="species-aliases"></h3>
+        </div>
+      </div>
+    </div>
+    <div id="gallery-wrapper">
+      <div class="container">
+        <h2 id="gallery-title" class="text-center margin-0">Gallery</h2>
+        <div id="gallery">
+          <div id="container-enlarged-image">
+            <img id="enlarged-image" src="" alt="">
+          </div>
+
+          <div id="tumb-gallery"></div>
+        </div>
+      </div >
+      <div class="fundo-laranja">
+      </div>
+    </div>
+      
+    <div id="biology-wrapper" class="container container-sm">
+      <h2>
+        Biology
+      </h2>
+      <div id="biology"></div>
+    </div>
+
+    <div id="location-wrapper" class="container container-sm">
+      <h2>
+        Location
+      </h2>
+      <div id="location"></div>
+    </div>
+    <footer>
+      <div class="container">
+        <p>
+          Site developed by <strong>Daniel Enes de Almeida</strong>.
+        </p>
+        <p>
+          This page it's a product that the author use to divulge your projects as Full Stack developer.
+        </p>
+        <p>
+          The information here contented belongs to a third-party API. 
+        </p>
+      </div>
+    </footer>
+  </main>
+
+
+</body>
+</html>
