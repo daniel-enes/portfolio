@@ -14,14 +14,15 @@ function navigationOnText() {
     if(e.key === 'Tab') {
       let activeElement = document.activeElement;
       if((activeElement.classList.contains(classFocusableSection)) ||
-      activeElement.classList.contains(classFocusableChild)) {
-        console.log(activeElement)
+      (activeElement.classList.contains(classFocusableChild))) {
+        return false
       } else {
-        console.log('não contém')
+        let siblings = activeElement.sib
         for(let i = 0; i < focusableSection.length; i++) {
           focusableSection[i].setAttribute('tabindex', '0')
         }
       }
+
     }
   })
 

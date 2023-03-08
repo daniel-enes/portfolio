@@ -7,7 +7,7 @@
 }
 
 .focusable-child:focus {
-  outline: solid 2px #00f;
+  outline: dotted 2px #000;
   border-radius: 2px;
 }
 

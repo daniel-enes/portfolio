@@ -25,3 +25,7 @@ elemento focado é um de classe focusable-child e na hipótese disto
 ser verdadeiro, ativar a classe focused-parent ao seu pai marcado com a 
 classe focusable-section e determinar seus irmãos de mesma classe com
 tabindex=0.
+
+(3) Quando o foco está ativo num elemento sem a classes focusable-section
+ou focusable-child, é possível navegar pelos elementos focusable-child com
+as setas, porém, não mantém definido tabindex="-1" para tais. Corrigir.
