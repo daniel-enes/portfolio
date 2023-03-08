@@ -46,19 +46,53 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Arial, Helvetica, sans-serif;
   text-align: left;
   margin: 30px 0;
+  padding: 5px 0;
 }
 
 h1 {
   font-size: 2.5em;
+  font-weight: bolder;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.1em;
+}
+
+h5 {
+  font-size: 0.9em;
+}
+
+p, li {
+  font-family: Helvetica, sans-serif;
 }
 
 li {
-  line-height: 1.5em;
-  margin: 20px 0px;
+  padding: 5px 0;
+  line-height: 2em;
 }
 
 p {
   margin: 15px 0;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* Classes de texto */
+.text-center {
+  text-align: center
 }
 
 /* Classes das listas */
