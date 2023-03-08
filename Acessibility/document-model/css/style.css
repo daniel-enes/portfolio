@@ -1,0 +1,103 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  margin: 30px 0;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+li {
+  line-height: 1.5em;
+  margin: 20px 0px;
+}
+
+p {
+  margin: 15px 0;
+}
+
+/* Classes das listas */
+.link-list-container {
+  font-size: 1.2em;
+}
+
+.link-list-container a {
+  color: #00f;
+}
+
+.parent-list-container {
+  padding: 0 10px;
+} 
+
+.child-list-container {
+  padding: 0 20px;
+} 
+
+.list-container {
+  list-style-position: inside;
+}
+
+.list-style-none {
+  list-style: none;
+}
+
+ol.upper-roman {
+  list-style-type: upper-roman;
+}
+
+ol.decimal {
+  counter-reset: item;
+  list-style-type: decimal;
+}
+ol.decimal > li {
+  display: block;
+}
+ol.decimal > li:before {
+  counter-increment: item;
+  content: counters(item, ".") ". ";
+}
