@@ -1,0 +1,27 @@
+Implementado:
+(1) Elementos com a classe focusable-section recebem foco através da
+tabulação.
+
+(2) Elementos filhos de uma seção de classe focusable-section, marcados
+com a classe focusable-child, recebem foco para navegação através das 
+teclas de seta.
+
+(3) Ao pressionar a tecla Tab, a navegação por tabulação ocorrerá apenas
+nos elementos marcados com a classe focusable-section e em elementos com
+navegação nativa (link, botões e campos de formulário, por exemplo).
+
+(4) se o elemento ativo não é um da classe focusable-section ou 
+focusable-child, este ativa tabindex=0 para todos os focusable-section
+quando for pressionado a tecla Tab.
+
+Implementar:
+
+(1) Quando focusable-section[0] dispara o evento Tab+Shift, ele não
+retoma o valor tabindex=0. Corrigir.
+
+(2) Quando o foco for dado via click do mouse, remover a classe 
+focused-parent da seção anterior que continha o foco, verificar se o
+elemento focado é um de classe focusable-child e na hipótese disto
+ser verdadeiro, ativar a classe focused-parent ao seu pai marcado com a 
+classe focusable-section e determinar seus irmãos de mesma classe com
+tabindex=0.

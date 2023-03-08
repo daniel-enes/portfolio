@@ -1,0 +1,13 @@
+.focusable-section {
+  padding: 10px;
+}
+
+.focused-parent {
+  outline: solid 2px #000;
+}
+
+.focusable-child:focus {
+  outline: solid 2px #00f;
+  border-radius: 2px;
+}
+
