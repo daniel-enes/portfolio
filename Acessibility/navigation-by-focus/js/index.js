@@ -105,24 +105,68 @@ function navigationOnText() {
             let child = focusableChild[i]
 
             if(e.key === "ArrowUp") {
-              if(index > 0) {
-                focusableChild[index].classList.remove('focused-child')
-                index--
-                focusableChild[index].focus();
-                focusableChild[index].classList.add('focused-child')
+              if(!(e.target.classList.contains(classFocusableChild))) {
+                if(child.classList.contains(classFocusableChild)) {
+                  let siblings = child.parentElement.getElementsByClassName(classFocusableChild);
+                  for(let i = 0; i < siblings.length; i++) {
+                    siblings[i].setAttribute('tabindex', '0')
+                  }
+                  if(index > 0) {
+                    focusableChild[index].classList.remove('focused-child')
+                    --index
+                    focusableChild[index].focus();
+                    focusableChild[index].classList.add('focused-child')
+                  } else {
+                    focusableChild[index].focus();
+                    focusableChild[index].classList.add('focused-child')
+                  }
+                } 
+              } else {
+                if(index > 0) {
+                  focusableChild[index].classList.remove('focused-child')
+                  index--
+                  focusableChild[index].focus();
+                  focusableChild[index].classList.add('focused-child')
+                }
               }
             }
             else if (e.key === "ArrowDown") {
+              if(!(e.target.classList.contains(classFocusableChild))) {
+                if(child.classList.contains(classFocusableChild)) {
+                  let siblings = child.parentElement.getElementsByClassName(classFocusableChild);
+                  for(let i = 0; i < siblings.length; i++) {
+                    siblings[i].setAttribute('tabindex', '0')
+                  }
+                  if(index < (numberOfChildren - 1)) {
+                    focusableChild[index].classList.remove('focused-child')
+                    index++
+                    focusableChild[index].focus();
+                    focusableChild[index].classList.add('focused-child')
+                  } else {
+                    focusableChild[index].focus();
+                    focusableChild[index].classList.add('focused-child')
+                  }
+                } 
+              } else {
+                if(index < (numberOfChildren - 1)) {
+                  focusableChild[index].classList.remove('focused-child')
+                  index++
+                  focusableChild[index].focus();
+                  focusableChild[index].classList.add('focused-child')
+                }
+              }
+              /*
               if(index < (numberOfChildren - 1)) {
                 focusableChild[index].classList.remove('focused-child')
                 index++
                 focusableChild[index].focus();
                 focusableChild[index].classList.add('focused-child')
               }
+              */
             }
             else if (e.key === "Tab") {
               let parent = child.parentElement
-              let siblings = parent.querySelectorAll('.focusable-child')
+              let siblings = parent.getElementsByClassName(classFocusableChild)
               parent.classList.remove('focused-parent')
               child.setAttribute('tabindex', '-1')
 
