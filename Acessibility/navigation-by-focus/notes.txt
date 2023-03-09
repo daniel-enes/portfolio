@@ -15,11 +15,11 @@ focusable-child, este ativa tabindex=0 para todos os focusable-section
 quando for pressionado a tecla Tab.
 
 (5) Quando o foco é dado via click do mouse, a classe focused-parent da 
-seção anterior é removida que continha o foco
+seção anterior é removida que continha o foco.
+
+(6) Quando o foco está ativo num elemento filho de focusable-child e fil, 
+ao navegar com as setas ativa-se tabindex="0" nos elementos  focusable-child
 
 Implementar:
 
-(1) Quando o foco está ativo num elemento filho de focusable-section
-e que não é da classe focusable-child, é possível navegar pelos elementos 
-focusable-child com as setas, porém, não mantém definido tabindex="-1" 
-para tais. Corrigir.
+(1) 
