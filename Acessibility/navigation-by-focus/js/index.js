@@ -10,7 +10,7 @@ function navigationOnText() {
   const body = document.getElementsByTagName('body')
 
   /*
-  *
+  * 
   * @param = NodeList 
   */
   function removeClassFocusedParent(focusableSection) {
@@ -82,7 +82,6 @@ function navigationOnText() {
         // Parent's element tab is removed
         section.setAttribute('tabindex', '-1')
 
-
         // Active tab on children elements where focusableSection has focus
         for(let i = 0; i < focusableChild.length; i++) {
 
@@ -138,20 +137,8 @@ function navigationOnText() {
           })
         }
       }
-    }) 
-
-    // Atribui o evento "keydown"
-    focusableSection[i].addEventListener('keydown', (e) => {
-
-      const section = e.target;
-      //const focusableChild = section.querySelector('.focusable-child')
-
-      if(e.key === 'Tab') {
-        //section.setAttribute('tabindex', '0')
-        //section.classList.remove('focused-parent')
-      }
     })
-  }
+  } 
 }
 
 
