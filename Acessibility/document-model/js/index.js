@@ -1,3 +1,4 @@
+
 function navigationOnText() {
 
   const classFocusableSection = 'focusable-section';
@@ -183,3 +184,5 @@ function navigationOnText() {
     })
   } 
 }
+
+
