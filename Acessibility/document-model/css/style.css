@@ -81,6 +81,8 @@ li {
 
 p {
   margin: 15px 0;
+  font-size: 20px;
+  line-height: 30px;
 }
 
 /* Container */
@@ -134,4 +136,19 @@ ol.decimal > li {
 ol.decimal > li:before {
   counter-increment: item;
   content: counters(item, ".") ". ";
+}
+
+
+/* For Javascript */
+.focusable-section {
+  padding: 10px;
+}
+
+.focused-parent {
+  outline: solid 2px #000;
+}
+
+.focusable-child:focus {
+  outline: dotted 2px #000;
+  border-radius: 2px;
 }
