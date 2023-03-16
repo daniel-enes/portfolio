@@ -66,7 +66,6 @@ function navigationOnText() {
 
     // EVENT FOCUS seted in focusableSection
     focusableSection[i].addEventListener('focus', (e) => {
-      
       let section = e.target;
       
       // Finds all of children that are focusable
@@ -87,7 +86,6 @@ function navigationOnText() {
 
           focusableChild[i].setAttribute('tabindex', '0')
           
-
           if(i === 0) {
             focusableChild[i].classList.add('focused-child')
             focusableChild[i].focus();
@@ -95,8 +93,15 @@ function navigationOnText() {
           }
 
           // FOCUS EVENT seted in focusableChild
-          focusableChild[i].addEventListener('focus', () => {
+          focusableChild[i].addEventListener('focus', (e) => {
             section.classList.add('focused-parent')
+            const setTabindexOnChild = (child) => {
+              let siblings = child.parentElement
+              for(let i = 0; i < siblings.length; i++) {
+                siblings[i].setAttribute('tabindex', '0')
+              }
+            }
+            setTabindexOnChild(focusableChild[i])  
           })
 
           // KEYDON EVENT seted in focusableChild
@@ -105,7 +110,8 @@ function navigationOnText() {
             let child = focusableChild[i]
 
             if(e.key === "ArrowUp") {
-              if(!(e.target.classList.contains(classFocusableChild))) {
+              console.log('ArrowUp')
+              if((e.target.classList.contains(classFocusableChild))) {
                 if(child.classList.contains(classFocusableChild)) {
                   let siblings = child.parentElement.getElementsByClassName(classFocusableChild);
                   for(let i = 0; i < siblings.length; i++) {
@@ -131,7 +137,7 @@ function navigationOnText() {
               }
             }
             else if (e.key === "ArrowDown") {
-              if(!(e.target.classList.contains(classFocusableChild))) {
+              if((e.target.classList.contains(classFocusableChild))) {
                 if(child.classList.contains(classFocusableChild)) {
                   let siblings = child.parentElement.getElementsByClassName(classFocusableChild);
                   for(let i = 0; i < siblings.length; i++) {
@@ -181,6 +187,9 @@ function navigationOnText() {
           })
         }
       }
+    })
+    focusableSection[i].addEventListener('keydown', (element) => {
+
     })
   } 
 }

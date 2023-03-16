@@ -105,7 +105,7 @@ function navigationOnText() {
             let child = focusableChild[i]
 
             if(e.key === "ArrowUp") {
-              if(!(e.target.classList.contains(classFocusableChild))) {
+              if((e.target.classList.contains(classFocusableChild))) {
                 if(child.classList.contains(classFocusableChild)) {
                   let siblings = child.parentElement.getElementsByClassName(classFocusableChild);
                   for(let i = 0; i < siblings.length; i++) {
@@ -131,7 +131,7 @@ function navigationOnText() {
               }
             }
             else if (e.key === "ArrowDown") {
-              if(!(e.target.classList.contains(classFocusableChild))) {
+              if((e.target.classList.contains(classFocusableChild))) {
                 if(child.classList.contains(classFocusableChild)) {
                   let siblings = child.parentElement.getElementsByClassName(classFocusableChild);
                   for(let i = 0; i < siblings.length; i++) {
