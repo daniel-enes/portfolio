@@ -88,7 +88,13 @@ blockquote {
   margin-left: 50px;
 }
 
+b {
+  font-weight: bold;
+}
 
+i {
+  font-style: italic;
+}
 /* Container */
 .container {
   max-width: 800px;

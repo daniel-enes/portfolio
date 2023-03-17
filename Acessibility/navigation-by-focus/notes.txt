@@ -22,6 +22,8 @@ ao navegar com as setas ativa-se tabindex="0" nos elementos focusable-child
 
 Implementar:
 
+(1) Adicionar o evento click correspondente ao "toque" nos dispositivos
+móveis 
 
 
  
