@@ -68,8 +68,11 @@ h4, h5 {
 }
 
 p, li {
-  text-indent: 50px;
   font-family: Helvetica, sans-serif;
+}
+
+p {
+  text-indent: 100px;
 }
 
 li {
@@ -81,7 +84,7 @@ li {
 p, blockquote {
   margin: 30px 0;
   font-size: 20px;
-  line-height: 30px;
+  line-height: 50px;
 }
 
 blockquote {
