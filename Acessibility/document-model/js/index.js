@@ -9,26 +9,6 @@ function navigationOnText() {
 
   const body = document.getElementsByTagName('body')
 
-  /*
-  * 
-  * @param = NodeList 
-  */
-  function removeClassFocusedParent(focusableSection) {
-    for(let i = 0; i < focusableSection.length; i++) {
-      focusableSection[i].classList.remove(classFocusedParent)
-    }
-  }
-
-  /*
-  *
-  * @param = NodeList 
-  */
-  function setTabindexOnSection(focusableSection) {
-    for(let i = 0; i < focusableSection.length; i++) {
-      focusableSection[i].setAttribute('tabindex', '0')
-    }
-  }
-
   body[0].addEventListener('keydown', (e) => {
     if(e.key === 'Tab') {
       let activeElement = document.activeElement;
@@ -73,9 +53,6 @@ function navigationOnText() {
       
       if(focusableChild.length != 0) {
 
-        let index = 0;
-        const numberOfChildren = focusableChild.length;
-
         setTabindexOnSection(focusableSection)
 
         // Parent's element tab is removed
@@ -85,113 +62,116 @@ function navigationOnText() {
         for(let i = 0; i < focusableChild.length; i++) {
 
           focusableChild[i].setAttribute('tabindex', '0')
-          
           if(i === 0) {
-            focusableChild[i].classList.add('focused-child')
+            //focusableChild[i].classList.add('focused-child')
             focusableChild[i].focus();
             section.classList.add('focused-parent')
           }
 
           // FOCUS EVENT seted in focusableChild
-          focusableChild[i].addEventListener('focus', (e) => {
+          focusableChild[i].addEventListener('focus', () => {
             section.classList.add('focused-parent')
-            const setTabindexOnChild = (child) => {
-              let siblings = child.parentElement
-              for(let i = 0; i < siblings.length; i++) {
-                siblings[i].setAttribute('tabindex', '0')
-              }
-            }
-            setTabindexOnChild(focusableChild[i])  
           })
 
           // KEYDON EVENT seted in focusableChild
-          focusableChild[i].addEventListener('keydown', (e) => {
-
-            let child = focusableChild[i]
-
-            if(e.key === "ArrowUp") {
-              console.log('ArrowUp')
-              if((e.target.classList.contains(classFocusableChild))) {
-                if(child.classList.contains(classFocusableChild)) {
-                  let siblings = child.parentElement.getElementsByClassName(classFocusableChild);
-                  for(let i = 0; i < siblings.length; i++) {
-                    siblings[i].setAttribute('tabindex', '0')
-                  }
-                  if(index > 0) {
-                    focusableChild[index].classList.remove('focused-child')
-                    --index
-                    focusableChild[index].focus();
-                    focusableChild[index].classList.add('focused-child')
-                  } else {
-                    focusableChild[index].focus();
-                    focusableChild[index].classList.add('focused-child')
-                  }
-                } 
-              } else {
-                if(index > 0) {
-                  focusableChild[index].classList.remove('focused-child')
-                  index--
-                  focusableChild[index].focus();
-                  focusableChild[index].classList.add('focused-child')
-                }
-              }
-            }
-            else if (e.key === "ArrowDown") {
-              if((e.target.classList.contains(classFocusableChild))) {
-                if(child.classList.contains(classFocusableChild)) {
-                  let siblings = child.parentElement.getElementsByClassName(classFocusableChild);
-                  for(let i = 0; i < siblings.length; i++) {
-                    siblings[i].setAttribute('tabindex', '0')
-                  }
-                  if(index < (numberOfChildren - 1)) {
-                    focusableChild[index].classList.remove('focused-child')
-                    index++
-                    focusableChild[index].focus();
-                    focusableChild[index].classList.add('focused-child')
-                  } else {
-                    focusableChild[index].focus();
-                    focusableChild[index].classList.add('focused-child')
-                  }
-                } 
-              } else {
-                if(index < (numberOfChildren - 1)) {
-                  focusableChild[index].classList.remove('focused-child')
-                  index++
-                  focusableChild[index].focus();
-                  focusableChild[index].classList.add('focused-child')
-                }
-              }
-              /*
-              if(index < (numberOfChildren - 1)) {
-                focusableChild[index].classList.remove('focused-child')
-                index++
-                focusableChild[index].focus();
-                focusableChild[index].classList.add('focused-child')
-              }
-              */
-            }
-            else if (e.key === "Tab") {
-              let parent = child.parentElement
-              let siblings = parent.getElementsByClassName(classFocusableChild)
-              parent.classList.remove('focused-parent')
-              child.setAttribute('tabindex', '-1')
-
-              for(let i = 0; i < numberOfChildren; i++) {
-                siblings[i].setAttribute('tabindex', '-1')
-              }
-              
-            }
-            else {
-              return false
-            } 
-          })
+          focusableChild[i].addEventListener('keydown', keyboardNavigableChild)
         }
       }
     })
     focusableSection[i].addEventListener('keydown', (element) => {
 
     })
-  } 
+  }
+  
+  /*
+  * 
+  * @param = NodeList 
+  */
+  function removeClassFocusedParent(focusableSection) {
+    for(let i = 0; i < focusableSection.length; i++) {
+      focusableSection[i].classList.remove(classFocusedParent)
+    }
+  }
+
+  /*
+  *
+  * @param = NodeList 
+  */
+  function setTabindexOnSection(focusableSection) {
+    for(let i = 0; i < focusableSection.length; i++) {
+      focusableSection[i].setAttribute('tabindex', '0')
+    }
+  }
+
+  /*
+  *
+  * @param = NodeList 
+  */
+  const setTabindexOnChildren = (child) => {
+    let siblings = child.parentElement.getElementsByClassName(classFocusableChild)
+    for(let i = 0; i < siblings.length; i++) {
+      siblings[i].setAttribute('tabindex', '0')
+    }
+  }
+
+  const keyboardNavigableChild = (e) => {
+    
+    const child = e.target
+    const nextSibling = child.nextElementSibling
+    const previousSibling = child.previousElementSibling
+    
+    const prev = () => {
+      if(child.classList.contains(classFocusableChild)) {
+        if(previousSibling) {
+          previousSibling.focus();
+        }
+      } else {
+        child.parentElement.focus()
+        setTabindexOnChildren(child.parentElement)
+      }
+    }
+
+    const next = () => {
+      if(child.classList.contains(classFocusableChild)) {
+        if(nextSibling) {
+          nextSibling.focus()
+        }
+      } else {
+        setTabindexOnChildren(child.parentElement)
+        child.parentElement.nextElementSibling.focus()
+      }
+    }
+
+    const tab = () => {
+      
+      const parent = child.parentElement
+      const siblings = parent.getElementsByClassName(classFocusableChild)
+      const numberOfChildren = siblings.length
+
+      parent.classList.remove('focused-parent')
+
+      if(child.classList.contains(classFocusableChild)) {
+        child.setAttribute('tabindex', '-1')
+      }
+
+      for(let i = 0; i < numberOfChildren; i++) {
+        siblings[i].setAttribute('tabindex', '-1')
+      }
+      
+    }
+
+    switch(e.key) {
+      case "ArrowUp":
+        prev();
+        break;
+      case "ArrowDown":
+        next();
+        break;
+      case "Tab":
+        tab();
+        break;
+    }
+  }
 }
 
 
